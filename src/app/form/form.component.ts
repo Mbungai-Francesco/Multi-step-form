@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './form.component.sass'
 })
 export class FormComponent {
-
+  info = {
+    title : 'Personal info',
+    des : 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut!'
+  }
+  hide = false
 }
