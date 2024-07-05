@@ -8,9 +8,25 @@
   font-weight: 400
   color: col.$Cool-gray
 .foot
+  // background-color: pink
+  display: flex
+  justify-content: space-between
   input
-    width: 8em
-    padding: 1em
     font-weight: 500
     border: 0
     border-radius: 5px
+    cursor: pointer
+  input:nth-child(1)
+    // font-weight: 600
+    color: col.$Cool-gray
+    background-color: transparent
+    &:hover
+      color: col.$Marine-blue
+  input:nth-child(2)
+    padding: 1em
+    width: 8em
+    background-color: col.$Marine-blue
+    color: col.$White
+    &:hover
+      background-color: col.$Pastel-blue
+      // color: col.$Marine-blue

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-info',
@@ -8,5 +9,19 @@ import { Component } from '@angular/core';
   styleUrl: './info.component.sass'
 })
 export class InfoComponent {
+  pageId = 1
 
+  @Input() set id(value :number){
+    this.pageId = value;
+  }
+
+  planForm = new FormGroup({
+    name : new FormControl(''),
+    email : new FormControl(''),
+    phone: new FormControl('')
+  })
+
+  handleSubmit(){
+
+  }
 }

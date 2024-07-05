@@ -1,6 +1,7 @@
 <h1 class="title">{{info.title}}</h1>
 <p class="des">{{info.des}}</p>
+<router-outlet/>
 <div class="foot">
-  <input type="button" [hidden]="hide" value="Go Back" class="back">
-  <input type="button" value="Next Step" class="next">
+  <input type="button" [hidden]="hide" value="Go Back" class="back" [routerLink]="[prev]">
+  <input type="button" value="Next Step" class="next" [routerLink]="[next]" (click)="submit()">
 </div>
