@@ -1,7 +1,7 @@
 interface navLink{
   num: number;
-  name: string;
-  link: string;
+  name: string | undefined;
+  link: string | undefined;
 }
 
 export default navLink;

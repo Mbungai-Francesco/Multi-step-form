@@ -1,6 +1,8 @@
-<div class="flex items-center w-full cursor-pointer group">
-  <div [class]='"aspect-square h-9 mr-4 flex justify-center items-center rounded-full group-hover:bg-primary-light-blue group-hover:text-black " + (active ? " bg-primary-light-blue text-black" : " border border-primary-light-blue text-white")'>{{navlink.num}}</div>
-  <div>
+<div class="flex items-center w-full cursor-pointer group" [routerLink]="navlink.link">
+  <div [class]='"aspect-square h-9 mr-4 flex justify-center items-center rounded-full group-hover:bg-primary-light-blue group-hover:text-black " + (active ? " bg-primary-light-blue text-black" : " border border-primary-light-blue text-white")'>
+    {{navlink.num}}
+  </div>
+  <div class="uppercase">
     <div class="text-neutral-magnolia font-light uppercase opacity-75 text-sm"><p>Step {{navlink.num}}</p></div>
     <div class="text-white">{{navlink.name}}</div>
   </div>
