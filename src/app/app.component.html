@@ -1,8 +1,12 @@
 <div class="font-ubuntu w-full h-screen bg-neutral-magnolia flex items-center justify-center">
-  <div class="w-4/5 h-fit bg-neutral-white rounded-xl shadow-sm p-4 flex">
+  <div class="w-[70%] h-fit bg-neutral-white rounded-xl shadow-sm p-4 flex">
     <app-navbar/>
-    <div class="flex-grow ml-4 py-8 px-[6rem]">
-      <router-outlet/>
+    <div class="flex flex-col justify-between flex-grow ml-4 py-6 px-[6rem]">
+      <div><router-outlet/></div>
+      <div class="w-full h-fit flex justify-between">
+        <app-button-prev/>
+        <app-button-next/>
+      </div>
     </div>
   </div>
 </div>
