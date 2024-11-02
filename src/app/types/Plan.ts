@@ -4,3 +4,5 @@ interface Plan{
   pYr : number
   choosen : boolean
 }
+
+export { Plan };

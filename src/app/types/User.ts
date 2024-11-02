@@ -1,3 +1,6 @@
+import { AddOns } from "./Add-ons";
+import { Plan } from "./Plan";
+
 interface User {
   name: string;
   email: string;
@@ -11,3 +14,5 @@ enum PlanType {
   MONTHLY = 'monthly',
   YEARLY = 'yearly',
 }
+
+export { User, PlanType };

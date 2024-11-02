@@ -5,3 +5,5 @@ interface AddOns {
   pYr : number
   choosen : boolean
 }
+
+export { AddOns };

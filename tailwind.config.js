@@ -21,6 +21,9 @@ module.exports = {
           'white': 'hsl(0, 0%, 100%)',
         },
       },
+      fontFamily:{
+        'ubuntu': ['Ubuntu', 'sans-serif'],
+      }
     },
   },
   plugins: [],
