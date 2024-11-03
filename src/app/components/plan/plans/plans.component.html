@@ -1,0 +1,8 @@
+<div class="p-4 flex flex-col justify-between h-[11em] border-neutral-light-gray border rounded-xl">
+  <div id="container"></div>
+  <div>
+    <p class="font-semibold text-primary-marine-blue">{{this.plan.name}}</p>
+    <p class="opacity-50 text-sm font-medium"
+    >${{this.planType == 'monthly' ? this.plan.pMo : this.plan.pYr}}/mo</p>
+  </div>
+</div>
