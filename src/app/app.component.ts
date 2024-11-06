@@ -2,6 +2,8 @@ import { Component, Inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./components/shared/navbar/navbar.component";
 import { WINDOW } from './app.config';
+import { User } from './types';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +16,17 @@ export class AppComponent {
   title = 'Multi-Step-Form';
   prev = ''
   next = ''
-
+  user !: User
   currentPath !: string;
 
-  constructor(@Inject(WINDOW) private window: Window) {}
+  constructor(@Inject(WINDOW) private window: Window, private userService : UserService) {}
+
+  getUsers = () =>{
+    this.userService.user$.subscribe((user) => {
+      this.user = user
+    });
+    console.log(this.user); 
+  }
 
   checkRoute = () =>{
     this.currentPath = this.window.location.pathname.split('/')[1]

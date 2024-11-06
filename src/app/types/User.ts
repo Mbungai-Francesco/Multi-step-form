@@ -5,9 +5,9 @@ interface User {
   name: string;
   email: string;
   phone: string;
-  plan: Plan;
+  plan?: Plan;
   planType: PlanType;
-  addOns: AddOns[];
+  addOns?: AddOns[];
 }
 
 enum PlanType {
