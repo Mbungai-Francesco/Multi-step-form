@@ -1,5 +1,6 @@
 <div 
   [class]="'cursor-pointer p-4 flex flex-col justify-between h-[11em] border-neutral-light-gray border-[1.6px] rounded-xl hover:border-primary-purplish-blue/70 ' + (this.plan.choosen ? 'border-primary-purplish-blue/70 bg-primary-purplish-blue/5' : '')"
+  (click)="chosePlan()"
   >
   <div id="container"></div>
   <div>

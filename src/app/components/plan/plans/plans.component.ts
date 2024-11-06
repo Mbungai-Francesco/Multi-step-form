@@ -19,8 +19,11 @@ export class PlansComponent {
   constructor( private elRef : ElementRef, private userService : UserService){
     this.userService.user$.subscribe((user) => {
       this.user = user
+      if(this.user.plan != this.plan){
+        this.plan.choosen = false
+      }
     })
-    console.log(this.user);
+    // console.log(this.user);
   }
 
   ngOnInit() {
@@ -37,5 +40,11 @@ export class PlansComponent {
     template.innerHTML = html.trim(); // Set the HTML string
 
     return template.content.firstChild as HTMLElement; // Return the HTML element
+  }
+
+  chosePlan = () =>{
+    this.user.plan = this.plan
+    this.plan.choosen = true
+    this.userService.updateUser(this.user)
   }
 }

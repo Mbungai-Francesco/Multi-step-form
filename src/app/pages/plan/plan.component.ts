@@ -19,7 +19,6 @@ export class PlanComponent {
     this.userService.user$.subscribe((user) => {
       this.user = user
     })
-    console.log(this.user);
   }
 
   svgs = [
@@ -58,5 +57,6 @@ export class PlanComponent {
     }
     this.user.planType = this.active ? PlanType.MONTHLY : PlanType.YEARLY
     this.userService.updateUser(this.user)
+    console.log(this.user);
   }
 }
