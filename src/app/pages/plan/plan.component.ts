@@ -48,7 +48,7 @@ export class PlanComponent {
     }
   ]
 
-  active = false
+  active !: boolean
   changePlan = ( val ?: boolean) => {
     if(val !== undefined) {
       this.active = val
@@ -58,5 +58,9 @@ export class PlanComponent {
     this.user.planType = this.active ? PlanType.MONTHLY : PlanType.YEARLY
     this.userService.updateUser(this.user)
     console.log(this.user);
+  }
+
+  ngOnInit(){
+    this.active = this.user.planType == 'monthly' ? true : false
   }
 }

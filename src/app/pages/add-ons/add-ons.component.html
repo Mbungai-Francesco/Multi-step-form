@@ -1,1 +1,17 @@
-<p>add-ons works!</p>
+<div class=" h-full flex flex-col justify-between">
+  <div>
+    <div class="mb-8">
+      <h2 class="text-3xl font-bold text-primary-marine-blue mb-4">Pick add-ons</h2>
+      <p class="opacity-50">Add-ons help enhance your gaming experience</p>
+    </div>
+    <div>
+      @for (item of adds; track $index) {
+        <app-adds [add]="item"/>
+      }
+    </div>
+  </div>
+  <div class="w-full h-fit flex justify-between">
+    <app-button-prev link="/plan"/>
+    <app-button-next link="/summary"/>
+  </div>
+</div>
