@@ -6,7 +6,7 @@ import { PlanType, User } from '../types';
   providedIn: 'root'
 })
 export class UserService {
-  private userSubject = new BehaviorSubject<User>({name: '', email: '', phone: '', planType: PlanType.MONTHLY});
+  private userSubject = new BehaviorSubject<User>({name: '', email: '', phone: '', planType: PlanType.MONTHLY, addOns : []});
   user$ = this.userSubject.asObservable();
 
   usersDb?: string | null;

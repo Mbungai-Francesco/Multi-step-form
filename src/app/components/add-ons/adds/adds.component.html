@@ -1,8 +1,16 @@
-<div>
-  <input type="checkbox" name="" id="">
-  <div>
-    <p>{{add.name}}</p>
-    <p>{{add.des}}</p>
+<div 
+  [class]="'cursor-pointer p-4 flex my-2 justify-between items-center border-[1.6px] rounded-lg hover:border-primary-purplish-blue/70 '
+  + (add.choosen ? 'border-primary-purplish-blue/70 bg-primary-purplish-blue/5' : 'border-neutral-light-gray')"
+  (click)="check()"
+  >
+  <div class="flex items-center">
+    <app-check-box class="ml-2 mr-5" [checked]="add.choosen"/>
+    <div>
+      <p class="opacity-95 font-medium text-primary-marine-blue">{{ add.name }}</p>
+      <p class="opacity-40 text-sm font-medium">{{ add.des }}</p>
+    </div>
   </div>
-  <p>+${{user.planType == 'monthly' ? add.pMo : add.pYr}}{{user.planType == 'monthly' ? '/mo' : '/yr'}}</p>
+  <p class="opacity-80 text-sm font-medium text-primary-purplish-blue">
+    +${{ user.planType == "monthly" ? add.pMo : add.pYr}}{{ user.planType == "monthly" ? "/mo" : "/yr" }}
+  </p>
 </div>

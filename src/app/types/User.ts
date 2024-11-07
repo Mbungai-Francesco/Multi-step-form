@@ -7,7 +7,7 @@ interface User {
   phone: string;
   plan?: Plan;
   planType: PlanType;
-  addOns?: AddOns[];
+  addOns: AddOns[];
 }
 
 enum PlanType {
