@@ -2,6 +2,7 @@ import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import { navLink } from '../../../types';
 import { RouterLink } from '@angular/router';
 import { WINDOW } from '../../../app.config';
+import { SharedService } from '../../../services/shared/shared.service';
 
 @Component({
   selector: 'app-navbav-link',
@@ -12,19 +13,25 @@ import { WINDOW } from '../../../app.config';
 })
 export class NavbavLinkComponent {
   @Input() navlink! : navLink
-  @Output() activeOrNot = new EventEmitter()
+  // @Output() activeOrNot = new EventEmitter()
   active = false;
   currentPath !: string;
 
-  constructor(@Inject(WINDOW) private window: Window) {}
+  constructor(
+    @Inject(WINDOW) private window: Window,
+    private sharedService: SharedService
+  ) {}
 
   checkRoute = () =>{
     this.currentPath = this.window.location.pathname.split('/')[1]
     if(this.currentPath == this.navlink.link) this.active = true
     else this.active = false
+    console.log(this.currentPath);
   }
 
   ngOnInit() {
-    this.checkRoute()
+    this.sharedService.updateTitle$.subscribe(() => {
+      this.checkRoute()
+    });
   }
 }

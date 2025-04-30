@@ -4,6 +4,7 @@ import { NavbarComponent } from "./components/shared/navbar/navbar.component";
 import { WINDOW } from './app.config';
 import { User } from './types';
 import { UserService } from './services/user.service';
+import { SharedService } from './services/shared/shared.service';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,10 @@ export class AppComponent {
   user !: User
   currentPath !: string;
 
-  constructor(@Inject(WINDOW) private window: Window, private userService : UserService) {}
+  constructor(
+    @Inject(WINDOW) private window: Window, private userService : UserService,
+    private sharedService: SharedService
+  ) {}
 
   getUsers = () =>{
     this.userService.user$.subscribe((user) => {
@@ -28,12 +32,12 @@ export class AppComponent {
     console.log(this.user); 
   }
 
-  checkRoute = () =>{
-    this.currentPath = this.window.location.pathname.split('/')[1]
-    console.log(this.currentPath);
-  }
+  // checkRoute = () =>{
+  //   this.currentPath = this.window.location.pathname.split('/')[1]
+  //   console.log(this.currentPath);
+  // }
 
   ngOnInit(){
-    this.checkRoute()
+    this.sharedService.triggerUpdateTitle()
   }
 }

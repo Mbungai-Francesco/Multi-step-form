@@ -2,6 +2,7 @@ import { Component, ViewChild, ViewChildren } from '@angular/core';
 import { NavbavLinkComponent } from "../navbav-link/navbav-link.component";
 import { Router } from '@angular/router';
 import { navLink } from '../../../types';
+import { SharedService } from '../../../services/shared/shared.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,8 +16,12 @@ export class NavbarComponent {
 
   @ViewChildren(NavbavLinkComponent) navbavLinkComponent !: NavbavLinkComponent[]
 
-  constructor( private router: Router ) {
-    console.log(this.router.config);
+  constructor(
+    private router: Router,
+    private sharedService: SharedService
+  ) {
+    sharedService.triggerUpdateTitle()
+    console.log(this.router.config); // gives me the routes in app.routes.ts
     const routes = this.router.config;
     for (let i = 0; i < routes.length; i++) {
       this.links.push({
