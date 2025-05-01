@@ -2,11 +2,12 @@ import { Component, ElementRef, Input } from '@angular/core';
 import { Plan, User } from '../../../types';
 import { UserService } from '../../../services/user.service';
 import { PlansService } from '../../../services/plans/plans.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-plans',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './plans.component.html',
   styleUrl: './plans.component.css'
 })

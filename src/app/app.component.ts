@@ -38,6 +38,5 @@ export class AppComponent {
   // }
 
   ngOnInit(){
-    this.sharedService.triggerUpdateTitle()
   }
 }

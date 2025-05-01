@@ -7,5 +7,8 @@
     <p class="font-semibold text-primary-marine-blue">{{this.plan.name}}</p>
     <p class="opacity-50 text-sm font-medium"
     >${{this.user.planType == 'monthly' ? this.plan.pMo : this.plan.pYr}}/mo</p>
+    <p class="text-xs"
+      [ngClass]="this.user.planType == 'monthly' ? ' hidden' : ' '"
+    >2 months free</p>
   </div>
 </div>

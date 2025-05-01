@@ -1,1 +1,47 @@
-<p>summary works!</p>
+<div class="h-full flex flex-col justify-between">
+  <div>
+    <div class="mb-8">
+      <h2 class="text-3xl font-bold text-primary-marine-blue mb-4">
+        Finishing up
+      </h2>
+      <p class="opacity-50">
+        Double check everything looks ok before confirming.
+      </p>
+    </div>
+    <div class="w-full bg-primary-purplish-blue/5 rounded-xl p-4">
+      <!-- ? top -->
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-primary-marine-blue font-medium">Arcade (Yearly)</p>
+          <p class="underline text-neutral-cool-gray cursor-pointer text-sm">
+            Change
+          </p>
+        </div>
+        <p class="text-primary-marine-blue font-medium">$90/yr</p>
+      </div>
+      <!-- ? line through -->
+      <div class="h-0 w-full border-0 border-b-2 my-4"></div>
+      <!-- ? accessories -->
+      <div class="flex items-center justify-between text-xs py-2">
+        <p class="text-neutral-cool-gray font-medium">Online service</p>
+        <p class="text-primary-marine-blue/80 font-medium">+$10/yr</p>
+      </div>
+      <div class="flex items-center justify-between text-xs py-2">
+        <p class="text-neutral-cool-gray font-medium">Large storage</p>
+        <p class="text-primary-marine-blue/80 font-medium">+$10/yr</p>
+      </div>
+    </div>
+    <div class="flex items-center justify-between py-4 px-4">
+      <p class="text-neutral-cool-gray text-sm font-normal">Total (per year)</p>
+      <p class="text-primary-purplish-blue font-medium text-xl">+$10/yr</p>
+    </div>
+  </div>
+  <div class="w-full h-fit flex justify-between">
+    <app-button-prev link="/addOns" />
+    <div
+      class="px-4 py-3 hover:opacity-85 bg-primary-purplish-blue text-neutral-magnolia text-sm font-medium rounded-lg cursor-pointer"
+    >
+      <p>Confirm</p>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,7 @@ import { AddsComponent } from "../../components/add-ons/adds/adds.component";
 import { ButtonPrevComponent } from "../../components/shared/button-prev/button-prev.component";
 import { ButtonNextComponent } from "../../components/shared/button-next/button-next.component";
 import { AddOns } from '../../types';
+import { SharedService } from '../../services/shared/shared.service';
 
 @Component({
   selector: 'app-add-ons',
@@ -35,4 +36,12 @@ export class AddOnsComponent {
       choosen: false
     }
   ]
+
+  constructor (
+    private sharedService: SharedService
+  ){}
+
+  ngOnInit() {
+    this.sharedService.triggerUpdateTitle()
+  }
 }

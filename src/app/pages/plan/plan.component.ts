@@ -5,6 +5,7 @@ import { PlansComponent } from "../../components/plan/plans/plans.component";
 import { Plan, PlanType, User } from '../../types';
 import { UserService } from '../../services/user.service';
 import { PlansService } from '../../services/plans/plans.service';
+import { SharedService } from '../../services/shared/shared.service';
 
 @Component({
   selector: 'app-plan',
@@ -17,7 +18,11 @@ export class PlanComponent {
   user !: User
   plans !: Plan[]
 
-  constructor( private userService : UserService, private plansService: PlansService){
+  constructor( 
+    private userService : UserService, 
+    private plansService: PlansService,
+    private sharedService: SharedService
+  ){
     this.userService.user$.subscribe((user) => {
       this.user = user
     })
@@ -46,5 +51,6 @@ export class PlanComponent {
 
   ngOnInit(){
     this.active = this.user.planType == 'monthly' ? true : false
+    this.sharedService.triggerUpdateTitle()
   }
 }
