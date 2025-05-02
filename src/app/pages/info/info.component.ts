@@ -6,6 +6,7 @@ import { UserService } from '../../services/user.service';
 import { User } from '../../types';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-info',
@@ -20,7 +21,9 @@ export class InfoComponent {
 
   constructor(
     private sharedService: SharedService,
-    private userService: UserService
+    private userService: UserService,
+    private router : Router
+
   ) {
     userService.user$.subscribe((user) => {
       this.user = user
@@ -29,5 +32,12 @@ export class InfoComponent {
   
   ngOnInit() {
     this.sharedService.triggerUpdateTitle()
+  }
+
+  update(){
+    // console.log(this.user);
+    
+    this.userService.updateUser(this.user)
+    this.router.navigate(['/plan'])
   }
 }

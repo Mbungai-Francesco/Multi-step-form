@@ -26,7 +26,7 @@ export class NavbavLinkComponent {
     this.currentPath = this.window.location.pathname.split('/')[1]
     if(this.currentPath == this.navlink.link) this.active = true
     else this.active = false
-    console.log(this.currentPath);
+    // console.log(this.currentPath);
   }
 
   ngOnInit() {

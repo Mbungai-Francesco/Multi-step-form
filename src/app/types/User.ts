@@ -11,8 +11,8 @@ interface User {
 }
 
 enum PlanType {
-  MONTHLY = 'monthly',
-  YEARLY = 'yearly',
+  MONTHLY = 'Monthly',
+  YEARLY = 'Yearly',
 }
 
 export { User, PlanType };

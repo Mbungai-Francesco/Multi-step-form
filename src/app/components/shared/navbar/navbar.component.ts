@@ -21,7 +21,7 @@ export class NavbarComponent {
     private sharedService: SharedService
   ) {
     sharedService.triggerUpdateTitle()
-    console.log(this.router.config); // gives me the routes in app.routes.ts
+    // console.log(this.router.config); // gives me the routes in app.routes.ts
     const routes = this.router.config;
     for (let i = 0; i < routes.length; i++) {
       this.links.push({
@@ -30,7 +30,7 @@ export class NavbarComponent {
         link: routes[i].path
       })
     }
-    console.log(this.links);
+    // console.log(this.links);
     
   }
   

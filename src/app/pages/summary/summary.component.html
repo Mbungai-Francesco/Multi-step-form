@@ -11,25 +11,47 @@
     <div class="w-full bg-primary-purplish-blue/5 rounded-xl p-4">
       <!-- ? top -->
       <div class="flex items-center justify-between">
+        <!-- ? plan name -->
         <div>
-          <p class="text-primary-marine-blue font-medium">Arcade (Yearly)</p>
-          <p class="underline text-neutral-cool-gray cursor-pointer text-sm">
+          <p class="text-primary-marine-blue font-medium">
+            @if (user.plan) {
+            <span>{{ user.plan.name + " (" + user.planType + ")" }}</span>
+            }@else {
+            <span>No plan</span>
+            }
+          </p>
+          <p
+            class="underline text-neutral-cool-gray cursor-pointer text-sm"
+            routerLink="/plan"
+          >
             Change
           </p>
         </div>
-        <p class="text-primary-marine-blue font-medium">$90/yr</p>
+        <!-- ? plan amount -->
+        <p class="text-primary-marine-blue font-medium">
+          @if(user.plan) {
+          <span
+            >${{
+              user.planType == "Monthly" ? user.plan.pMo : user.plan.pYr
+            }}/{{ user.planType == "Monthly" ? "mo" : "yr" }}</span
+          >
+          }@else {
+          <span>$0</span>
+          }
+        </p>
       </div>
+
       <!-- ? line through -->
       <div class="h-0 w-full border-0 border-b-2 my-4"></div>
+
       <!-- ? accessories -->
+      @for (item of user.addOns; track $index) {
       <div class="flex items-center justify-between text-xs py-2">
-        <p class="text-neutral-cool-gray font-medium">Online service</p>
-        <p class="text-primary-marine-blue/80 font-medium">+$10/yr</p>
+        <p class="text-neutral-cool-gray font-medium">{{item.name}}</p>
+        <p class="text-primary-marine-blue/80 font-medium">+${{ user.planType == "Monthly" ? item.pMo : item.pYr }}/{{ user.planType == "Monthly" ? "mo" : "yr" }}
+        </p>
       </div>
-      <div class="flex items-center justify-between text-xs py-2">
-        <p class="text-neutral-cool-gray font-medium">Large storage</p>
-        <p class="text-primary-marine-blue/80 font-medium">+$10/yr</p>
-      </div>
+      }
     </div>
     <div class="flex items-center justify-between py-4 px-4">
       <p class="text-neutral-cool-gray text-sm font-normal">Total (per year)</p>
