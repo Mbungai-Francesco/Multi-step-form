@@ -15,6 +15,7 @@ import { Router, RouterLink } from '@angular/router';
 export class SummaryComponent {
 
   user!: User
+  sum = 0
 
   constructor(
     private sharedService: SharedService,
@@ -27,5 +28,16 @@ export class SummaryComponent {
 
   ngOnInit() {
     this.sharedService.triggerUpdateTitle()
+    this.user.addOns.forEach((res) => {
+      if (this.user.planType == "Monthly") {
+        this.sum += res.pMo
+      } else {
+        this.sum += res.pYr
+      }
+    })
+    if (this.user.plan)
+    this.sum += this.user.planType == "Monthly" ? this.user.plan.pMo : this.user.plan.pYr
   }
+
+
 }
