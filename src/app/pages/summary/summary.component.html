@@ -1,4 +1,7 @@
-<div class="h-full flex flex-col justify-between">
+<div
+  class="h-full flex flex-col justify-between"
+  [ngClass]="thanks ? 'hidden' : ''"
+>
   <div>
     <div class="mb-8">
       <h2 class="text-3xl font-bold text-primary-marine-blue mb-4">
@@ -47,15 +50,20 @@
       <!-- ? accessories -->
       @for (item of user.addOns; track $index) {
       <div class="flex items-center justify-between text-xs py-2">
-        <p class="text-neutral-cool-gray font-medium">{{item.name}}</p>
-        <p class="text-primary-marine-blue/80 font-medium">+${{ user.planType == "Monthly" ? item.pMo : item.pYr }}/{{ user.planType == "Monthly" ? "mo" : "yr" }}
+        <p class="text-neutral-cool-gray font-medium">{{ item.name }}</p>
+        <p class="text-primary-marine-blue/80 font-medium">
+          +${{ user.planType == "Monthly" ? item.pMo : item.pYr }}/{{
+            user.planType == "Monthly" ? "mo" : "yr"
+          }}
         </p>
       </div>
       }
     </div>
     <div class="flex items-center justify-between py-4 px-4">
       <p class="text-neutral-cool-gray text-sm font-normal">Total (per year)</p>
-      <p class="text-primary-purplish-blue font-medium text-xl">+${{sum}}/yr</p>
+      <p class="text-primary-purplish-blue font-medium text-xl">
+        +${{ sum }}/yr
+      </p>
     </div>
   </div>
   <div class="w-full h-fit flex justify-between">
@@ -63,7 +71,21 @@
     <div
       class="px-4 py-3 hover:opacity-85 bg-primary-purplish-blue text-neutral-magnolia text-sm font-medium rounded-lg cursor-pointer"
     >
-      <p>Confirm</p>
+      <p (click)="thanks = true">Confirm</p>
     </div>
   </div>
+</div>
+<div
+  class="h-full flex flex-col justify-between"
+  [ngClass]="thanks ? '' : 'hidden'"
+>
+  <div class="flex flex-col items-center justify-center h-full gap-4">
+    <img src="images/icon-thank-you.svg" alt="thank you" />
+    <h2 class="text-3xl font-bold text-primary-marine-blue mb-4">
+      Thank you!
+    </h2>
+    <p class="opacity-50 text-center">
+      Thanks for confirming your subscription! We hope you have fun using our
+      platform. If you ever need support, please feel free to email us at support&#64;loremgaming.com
+    </p>
 </div>

@@ -4,11 +4,12 @@ import { ButtonPrevComponent } from "../../components/shared/button-prev/button-
 import { UserService } from '../../services/user.service';
 import { User } from '../../types';
 import { Router, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-summary',
   standalone: true,
-  imports: [ButtonPrevComponent, RouterLink],
+  imports: [ButtonPrevComponent, RouterLink, CommonModule],
   templateUrl: './summary.component.html',
   styleUrl: './summary.component.css'
 })
@@ -16,6 +17,7 @@ export class SummaryComponent {
 
   user!: User
   sum = 0
+  thanks !: boolean
 
   constructor(
     private sharedService: SharedService,
@@ -27,6 +29,7 @@ export class SummaryComponent {
   }
 
   ngOnInit() {
+    this.thanks = false
     this.sharedService.triggerUpdateTitle()
     this.user.addOns.forEach((res) => {
       if (this.user.planType == "Monthly") {
@@ -38,6 +41,10 @@ export class SummaryComponent {
     if (this.user.plan)
     this.sum += this.user.planType == "Monthly" ? this.user.plan.pMo : this.user.plan.pYr
   }
+
+  // beriWo(){
+  //   thank
+  // }
 
 
 }
