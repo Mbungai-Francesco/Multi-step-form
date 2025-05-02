@@ -22,25 +22,34 @@ export class AddsComponent {
 
   check = () => {
     if (this.add.choosen) {
+      console.log(this.add);
+      
       console.log(this.user.addOns);
       
-      const index = this.user.addOns.indexOf(this.add);
-      console.log(index);
+      // const index = this.user.addOns.indexOf(this.add);
+      // console.log(index);
+      console.log(this.add.index);
       
-      this.user.addOns?.splice(index || 0, 1);
+      this.user.addOns?.splice(this.add.index || 0, 1);
+      for (let i = 0; i < this.user.addOns.length; i++) {
+        this.user.addOns[i].index = i;
+      }
       console.log(this.user.addOns);
     }
-    else this.user.addOns.push(this.add);
+    else {
+      this.add.index = this.user.addOns.length;
+      this.user.addOns.push(this.add);
+    }
     this.add.choosen = !this.add.choosen;
     console.log(this.user);
     this.userService.updateUser(this.user)
   };
 
   ngOnInit() {
-    console.log(this.add);
+    // console.log(this.add);
     
     this.user.addOns.find((res)=> res.name == this.add.name) ? this.add.choosen = true : this.add.choosen = false
-    console.log(this.add);
+    // console.log(this.add);
     // console.log(this.add.choosen);
   }
 }

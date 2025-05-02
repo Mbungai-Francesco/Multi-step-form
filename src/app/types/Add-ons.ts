@@ -4,6 +4,7 @@ interface AddOns {
   pMo : number
   pYr : number
   choosen : boolean
+  index ?: number
 }
 
 export { AddOns };
