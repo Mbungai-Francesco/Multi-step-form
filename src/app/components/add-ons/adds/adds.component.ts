@@ -32,6 +32,7 @@ export class AddsComponent {
   };
 
   ngOnInit() {
+    this.user.addOns.find((res)=> res.name == this.add.name) ? this.add.choosen = true : this.add.choosen = false
     // console.log(this.add.choosen);
   }
 }
