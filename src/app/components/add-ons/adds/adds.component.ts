@@ -26,8 +26,6 @@ export class AddsComponent {
       
       console.log(this.user.addOns);
       
-      // const index = this.user.addOns.indexOf(this.add);
-      // console.log(index);
       console.log(this.add.index);
       
       this.user.addOns?.splice(this.add.index || 0, 1);
@@ -45,11 +43,7 @@ export class AddsComponent {
     this.userService.updateUser(this.user)
   };
 
-  ngOnInit() {
-    // console.log(this.add);
-    
+  ngOnInit() {    
     this.user.addOns.find((res)=> res.name == this.add.name) ? this.add.choosen = true : this.add.choosen = false
-    // console.log(this.add);
-    // console.log(this.add.choosen);
   }
 }
